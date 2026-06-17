@@ -21,12 +21,21 @@ class SwerveController(Node):
         self.declare_parameter('wheel_radius', 0.025)
         self.declare_parameter('deadband', 0.001)
         self.declare_parameter('rate', 50.0)
+        self.declare_parameter('cmd_timeout', 0.5)
+        self.declare_parameter('max_linear_accel', 0.5)
+        self.declare_parameter('max_angular_accel', 1.0)
 
         self.wheel_radius = self.get_parameter('wheel_radius').value
         self.deadband = self.get_parameter('deadband').value
+        self.cmd_timeout = self.get_parameter('cmd_timeout').value
+        self.max_lin_accel = self.get_parameter('max_linear_accel').value
+        self.max_ang_accel = self.get_parameter('max_angular_accel').value
         rate = self.get_parameter('rate').value
+        self.dt = 1.0 / rate
 
-        self.cmd = Twist()
+        self.target_cmd = Twist()
+        self.ramped = [0.0, 0.0, 0.0]  # vx, vy, wz
+        self.last_cmd_time = self.get_clock().now()
         self.current_steer = [0.0] * len(self.MODULES)
 
         self.steer_pubs = []
@@ -35,7 +44,7 @@ class SwerveController(Node):
             self.steer_pubs.append(
                 self.create_publisher(
                     Float64,
-                    f'/model/r1/joint/{steer_jnt}/0/cmd_pos', 10))
+                    f'/model/r1/joint/{steer_jnt}/cmd_pos', 10))
             self.wheel_pubs.append(
                 self.create_publisher(
                     Float64,
@@ -44,13 +53,15 @@ class SwerveController(Node):
         self.create_subscription(Twist, '/cmd_vel', self._cmd_vel_cb, 10)
         self.create_subscription(
             JointState, '/joint_states', self._joint_states_cb, 10)
-        self.create_timer(1.0 / rate, self._control_loop)
+        self.create_timer(self.dt, self._control_loop)
 
         self.get_logger().info(
-            f'Swerve controller ready (wheel_r={self.wheel_radius})')
+            f'Swerve controller ready (wheel_r={self.wheel_radius}, '
+            f'max_lin_accel={self.max_lin_accel})')
 
     def _cmd_vel_cb(self, msg):
-        self.cmd = msg
+        self.target_cmd = msg
+        self.last_cmd_time = self.get_clock().now()
 
     def _joint_states_cb(self, msg):
         for i, (steer_jnt, _, _, _) in enumerate(self.MODULES):
@@ -66,10 +77,22 @@ class SwerveController(Node):
             a += 2.0 * math.pi
         return a
 
+    def _ramp(self, current, target, max_step):
+        diff = target - current
+        return current + max(-max_step, min(max_step, diff))
+
     def _control_loop(self):
-        vx = self.cmd.linear.x
-        vy = self.cmd.linear.y
-        wz = self.cmd.angular.z
+        elapsed = (self.get_clock().now() - self.last_cmd_time).nanoseconds * 1e-9
+        if elapsed > self.cmd_timeout:
+            self.target_cmd = Twist()
+
+        lin_step = self.max_lin_accel * self.dt
+        ang_step = self.max_ang_accel * self.dt
+        self.ramped[0] = self._ramp(self.ramped[0], self.target_cmd.linear.x, lin_step)
+        self.ramped[1] = self._ramp(self.ramped[1], self.target_cmd.linear.y, lin_step)
+        self.ramped[2] = self._ramp(self.ramped[2], self.target_cmd.angular.z, ang_step)
+
+        vx, vy, wz = self.ramped
 
         for i, (_, _, lx, ly) in enumerate(self.MODULES):
             mx = vx - wz * ly
@@ -88,7 +111,8 @@ class SwerveController(Node):
                     angle = self._normalize(angle + math.pi)
                     wheel_vel = -wheel_vel
 
-                angle = max(-math.pi / 2.0, min(math.pi / 2.0, angle))
+
+
 
             s = Float64()
             s.data = angle

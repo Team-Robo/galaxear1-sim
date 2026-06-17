@@ -54,9 +54,9 @@ def generate_launch_description():
             '/clock@rosgraph_msgs/msg/Clock[ignition.msgs.Clock',
             '/world/default/model/r1/joint_state@sensor_msgs/msg/JointState[ignition.msgs.Model',
             # Swerve steering commands (ROS -> IGN)
-            '/model/r1/joint/steer_motor_joint1/0/cmd_pos@std_msgs/msg/Float64]ignition.msgs.Double',
-            '/model/r1/joint/steer_motor_joint2/0/cmd_pos@std_msgs/msg/Float64]ignition.msgs.Double',
-            '/model/r1/joint/steer_motor_joint3/0/cmd_pos@std_msgs/msg/Float64]ignition.msgs.Double',
+            '/model/r1/joint/steer_motor_joint1/cmd_pos@std_msgs/msg/Float64]ignition.msgs.Double',
+            '/model/r1/joint/steer_motor_joint2/cmd_pos@std_msgs/msg/Float64]ignition.msgs.Double',
+            '/model/r1/joint/steer_motor_joint3/cmd_pos@std_msgs/msg/Float64]ignition.msgs.Double',
             # Swerve wheel velocity commands (ROS -> IGN)
             '/model/r1/joint/wheel_motor_joint1/cmd_vel@std_msgs/msg/Float64]ignition.msgs.Double',
             '/model/r1/joint/wheel_motor_joint2/cmd_vel@std_msgs/msg/Float64]ignition.msgs.Double',
