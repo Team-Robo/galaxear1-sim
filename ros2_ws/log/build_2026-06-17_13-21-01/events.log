@@ -1,0 +1,154 @@
+[0.000000] (-) TimerEvent: {}
+[0.000688] (galaxea_simulation) JobQueued: {'identifier': 'galaxea_simulation', 'dependencies': OrderedDict()}
+[0.000755] (robot_localization) JobQueued: {'identifier': 'robot_localization', 'dependencies': OrderedDict()}
+[0.000771] (galaxea_simulation) JobStarted: {'identifier': 'galaxea_simulation'}
+[0.016903] (robot_localization) JobStarted: {'identifier': 'robot_localization'}
+[0.027085] (galaxea_simulation) JobProgress: {'identifier': 'galaxea_simulation', 'progress': 'cmake'}
+[0.030284] (galaxea_simulation) JobProgress: {'identifier': 'galaxea_simulation', 'progress': 'build'}
+[0.030376] (galaxea_simulation) Command: {'cmd': ['/usr/bin/cmake', '--build', '/ros2_ws/build/galaxea_simulation', '--', '-j16', '-l16'], 'cwd': '/ros2_ws/build/galaxea_simulation', 'env': OrderedDict([('HOSTNAME', 'docker-desktop'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/root'), ('ROS_PYTHON_VERSION', '3'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/ros2_ws/install'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/ros2_ws/install/galaxea_simulation:/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/ros2_ws/build/galaxea_simulation'), ('TURTLEBOT3_MODEL', 'waffle'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('NVIDIA_VISIBLE_DEVICES', 'all'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/ros2_ws/install/galaxea_simulation:/opt/ros/humble')]), 'shell': False}
+[0.036609] (robot_localization) JobProgress: {'identifier': 'robot_localization', 'progress': 'cmake'}
+[0.041246] (robot_localization) Command: {'cmd': ['/usr/bin/cmake', '/ros2_ws/src/robot_localization', '-DCMAKE_INSTALL_PREFIX=/ros2_ws/install/robot_localization'], 'cwd': '/ros2_ws/build/robot_localization', 'env': OrderedDict([('HOSTNAME', 'docker-desktop'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/root'), ('ROS_PYTHON_VERSION', '3'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/ros2_ws/install'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/ros2_ws/install/galaxea_simulation:/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/ros2_ws/build/robot_localization'), ('TURTLEBOT3_MODEL', 'waffle'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('NVIDIA_VISIBLE_DEVICES', 'all'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/ros2_ws/install/galaxea_simulation:/opt/ros/humble')]), 'shell': False}
+[0.099339] (-) TimerEvent: {}
+[0.155785] (galaxea_simulation) CommandEnded: {'returncode': 0}
+[0.157182] (galaxea_simulation) JobProgress: {'identifier': 'galaxea_simulation', 'progress': 'install'}
+[0.165299] (galaxea_simulation) Command: {'cmd': ['/usr/bin/cmake', '--install', '/ros2_ws/build/galaxea_simulation'], 'cwd': '/ros2_ws/build/galaxea_simulation', 'env': OrderedDict([('HOSTNAME', 'docker-desktop'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/root'), ('ROS_PYTHON_VERSION', '3'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/ros2_ws/install'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/ros2_ws/install/galaxea_simulation:/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/ros2_ws/build/galaxea_simulation'), ('TURTLEBOT3_MODEL', 'waffle'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('NVIDIA_VISIBLE_DEVICES', 'all'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/ros2_ws/install/galaxea_simulation:/opt/ros/humble')]), 'shell': False}
+[0.173255] (galaxea_simulation) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.173520] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/launch\n'}
+[0.174718] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/launch/display.launch\n'}
+[0.174791] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/launch/gazebo.launch.py\n'}
+[0.174835] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/launch/gazebo copy.launch\n'}
+[0.174875] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/urdf\n'}
+[0.174944] (galaxea_simulation) StdoutLine: {'line': b'-- Installing: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/urdf/r1_v2_1_0.urdf\n'}
+[0.175367] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/urdf/r1_v2_1_0.csv\n'}
+[0.175498] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/worlds\n'}
+[0.175685] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes\n'}
+[0.175832] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/right_gripper_link.STL\n'}
+[0.175886] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/torso_link2.STL\n'}
+[0.175978] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/torso_link3.STL\n'}
+[0.176350] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/left_arm_link5.STL\n'}
+[0.176435] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/right_arm_link6.STL\n'}
+[0.176543] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/left_arm_link2.STL\n'}
+[0.176926] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/left_arm_link6.STL\n'}
+[0.177132] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/wheel_motor_link2.STL\n'}
+[0.177270] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/torso_link4.STL\n'}
+[0.177372] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/left_gripper_finger_link1.STL\n'}
+[0.177560] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/left_gripper_link.STL\n'}
+[0.177945] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/right_gripper_finger_link2.STL\n'}
+[0.178422] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/zed_link.STL\n'}
+[0.178824] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/base_link.STL\n'}
+[0.179206] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/wheel_motor_link3.STL\n'}
+[0.179390] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/right_arm_link3.STL\n'}
+[0.179538] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/right_arm_link2.STL\n'}
+[0.179629] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/left_realsense_link.STL\n'}
+[0.179714] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/left_arm_link4.STL\n'}
+[0.179791] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/steer_motor_link1.STL\n'}
+[0.179867] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/left_arm_base_link.STL\n'}
+[0.179943] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/left_gripper_finger_link2.STL\n'}
+[0.180460] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/right_arm_base_link.STL\n'}
+[0.180746] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/wheel_motor_link1.STL\n'}
+[0.180888] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/right_arm_link4.STL\n'}
+[0.181156] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/steer_motor_link2.STL\n'}
+[0.181336] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/right_arm_link1.STL\n'}
+[0.181433] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/steer_motor_link3.STL\n'}
+[0.181524] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/right_gripper_finger_link1.STL\n'}
+[0.181591] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/left_arm_link1.STL\n'}
+[0.181644] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/torso_link1.STL\n'}
+[0.181696] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/right_arm_link5.STL\n'}
+[0.181845] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/left_arm_link3.STL\n'}
+[0.182996] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/right_realsense_link.STL\n'}
+[0.184191] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/config\n'}
+[0.184748] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/config/joint_names_r1_v2_1_0.yaml\n'}
+[0.185110] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/ament_index/resource_index/package_run_dependencies/galaxea_simulation\n'}
+[0.185251] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/ament_index/resource_index/parent_prefix_path/galaxea_simulation\n'}
+[0.185324] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/environment/ament_prefix_path.sh\n'}
+[0.185395] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/environment/ament_prefix_path.dsv\n'}
+[0.185469] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/environment/path.sh\n'}
+[0.185516] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/environment/path.dsv\n'}
+[0.185555] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/local_setup.bash\n'}
+[0.185593] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/local_setup.sh\n'}
+[0.185630] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/local_setup.zsh\n'}
+[0.185667] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/local_setup.dsv\n'}
+[0.185794] (galaxea_simulation) StdoutLine: {'line': b'-- Installing: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/package.dsv\n'}
+[0.186285] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/ament_index/resource_index/packages/galaxea_simulation\n'}
+[0.186458] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/cmake/galaxea_simulationConfig.cmake\n'}
+[0.186814] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/cmake/galaxea_simulationConfig-version.cmake\n'}
+[0.186931] (galaxea_simulation) StdoutLine: {'line': b'-- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/package.xml\n'}
+[0.187290] (galaxea_simulation) CommandEnded: {'returncode': 0}
+[0.200653] (-) TimerEvent: {}
+[0.225092] (galaxea_simulation) JobEnded: {'identifier': 'galaxea_simulation', 'rc': 0}
+[0.243737] (robot_localization) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.300835] (-) TimerEvent: {}
+[0.401397] (-) TimerEvent: {}
+[0.415026] (robot_localization) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.433925] (robot_localization) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.501505] (-) TimerEvent: {}
+[0.510607] (robot_localization) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.518020] (robot_localization) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.518644] (robot_localization) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.519493] (robot_localization) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.525317] (robot_localization) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.601886] (-) TimerEvent: {}
+[0.619914] (robot_localization) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.631409] (robot_localization) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.631975] (robot_localization) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.632929] (robot_localization) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.633837] (robot_localization) StdoutLine: {'line': b"-- robot_localization: You did not request a specific build type: selecting 'RelWithDebInfo'.\n"}
+[0.641230] (robot_localization) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.702004] (-) TimerEvent: {}
+[0.802515] (-) TimerEvent: {}
+[0.822429] (robot_localization) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[0.902687] (-) TimerEvent: {}
+[1.003245] (-) TimerEvent: {}
+[1.062132] (robot_localization) StdoutLine: {'line': b'-- Found angles: 1.15.0 (/opt/ros/humble/share/angles/cmake)\n'}
+[1.076182] (robot_localization) StdoutLine: {'line': b'-- Found rclcpp: 16.0.19 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[1.103455] (-) TimerEvent: {}
+[1.203883] (-) TimerEvent: {}
+[1.232179] (robot_localization) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.8 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[1.248059] (robot_localization) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[1.274498] (robot_localization) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.8 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[1.304058] (-) TimerEvent: {}
+[1.314902] (robot_localization) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[1.367995] (robot_localization) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.404296] (-) TimerEvent: {}
+[1.504734] (-) TimerEvent: {}
+[1.510400] (robot_localization) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[1.521243] (robot_localization) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.10 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[1.604910] (-) TimerEvent: {}
+[1.687900] (robot_localization) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[1.705117] (-) TimerEvent: {}
+[1.732863] (robot_localization) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[1.781613] (robot_localization) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[1.805253] (-) TimerEvent: {}
+[1.818505] (robot_localization) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[1.905733] (-) TimerEvent: {}
+[1.961299] (robot_localization) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[1.962111] (robot_localization) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[2.005981] (-) TimerEvent: {}
+[2.064115] (robot_localization) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[2.065749] (robot_localization) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[2.106140] (-) TimerEvent: {}
+[2.203942] (robot_localization) StdoutLine: {'line': b'-- Found diagnostic_msgs: 4.9.1 (/opt/ros/humble/share/diagnostic_msgs/cmake)\n'}
+[2.206296] (-) TimerEvent: {}
+[2.235993] (robot_localization) StdoutLine: {'line': b'-- Found diagnostic_updater: 4.0.6 (/opt/ros/humble/share/diagnostic_updater/cmake)\n'}
+[2.257396] (robot_localization) StderrLine: {'line': b'\x1b[31mCMake Error at CMakeLists.txt:22 (find_package):\n'}
+[2.257586] (robot_localization) StderrLine: {'line': b'  By not providing "Findgeographic_msgs.cmake" in CMAKE_MODULE_PATH this\n'}
+[2.257666] (robot_localization) StderrLine: {'line': b'  project has asked CMake to find a package configuration file provided by\n'}
+[2.257733] (robot_localization) StderrLine: {'line': b'  "geographic_msgs", but CMake did not find one.\n'}
+[2.257804] (robot_localization) StderrLine: {'line': b'\n'}
+[2.257871] (robot_localization) StderrLine: {'line': b'  Could not find a package configuration file provided by "geographic_msgs"\n'}
+[2.257942] (robot_localization) StderrLine: {'line': b'  with any of the following names:\n'}
+[2.258013] (robot_localization) StderrLine: {'line': b'\n'}
+[2.258084] (robot_localization) StderrLine: {'line': b'    geographic_msgsConfig.cmake\n'}
+[2.258168] (robot_localization) StderrLine: {'line': b'    geographic_msgs-config.cmake\n'}
+[2.258280] (robot_localization) StderrLine: {'line': b'\n'}
+[2.258395] (robot_localization) StderrLine: {'line': b'  Add the installation prefix of "geographic_msgs" to CMAKE_PREFIX_PATH or\n'}
+[2.258512] (robot_localization) StderrLine: {'line': b'  set "geographic_msgs_DIR" to a directory containing one of the above files.\n'}
+[2.258627] (robot_localization) StderrLine: {'line': b'  If "geographic_msgs" provides a separate development package or SDK, be\n'}
+[2.258745] (robot_localization) StderrLine: {'line': b'  sure it has been installed.\n'}
+[2.258855] (robot_localization) StderrLine: {'line': b'\n'}
+[2.258987] (robot_localization) StderrLine: {'line': b'\x1b[0m\n'}
+[2.259060] (robot_localization) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[2.259135] (robot_localization) StdoutLine: {'line': b'See also "/ros2_ws/build/robot_localization/CMakeFiles/CMakeOutput.log".\n'}
+[2.265471] (robot_localization) CommandEnded: {'returncode': 1}
+[2.281803] (robot_localization) JobEnded: {'identifier': 'robot_localization', 'rc': 1}
+[2.292650] (-) EventReactorShutdown: {}

@@ -1,0 +1,83 @@
+[0.019s] Invoking command in '/ros2_ws/build/galaxea_simulation': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /ros2_ws/build/galaxea_simulation -- -j16 -l16
+[0.106s] -- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.275s] -- Found rclcpp: 16.0.19 (/opt/ros/humble/share/rclcpp/cmake)
+[0.346s] -- Found rosidl_generator_c: 3.1.8 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.350s] -- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.362s] -- Found rosidl_generator_cpp: 3.1.8 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.379s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.399s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.455s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.458s] -- Found rmw_fastrtps_cpp: 6.2.10 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.613s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.701s] -- Found ament_lint_auto: 0.12.15 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[0.785s] -- Added test 'flake8' to check Python code syntax and style conventions
+[0.786s] -- Added test 'lint_cmake' to check CMake code style
+[0.787s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[0.789s] -- Added test 'xmllint' to check XML markup files
+[0.791s] -- Configuring done
+[0.803s] -- Generating done
+[0.806s] -- Build files have been written to: /ros2_ws/build/galaxea_simulation
+[0.835s] Invoked command in '/ros2_ws/build/galaxea_simulation' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /ros2_ws/build/galaxea_simulation -- -j16 -l16
+[0.846s] Invoking command in '/ros2_ws/build/galaxea_simulation': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /ros2_ws/build/galaxea_simulation
+[0.851s] -- Install configuration: ""
+[0.851s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/launch
+[0.851s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/launch/display.launch
+[0.851s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/launch/gazebo.launch.py
+[0.851s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/launch/gazebo copy.launch
+[0.852s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/urdf
+[0.852s] -- Installing: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/urdf/r1_v2_1_0.urdf
+[0.852s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/urdf/r1_v2_1_0.csv
+[0.852s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/worlds
+[0.853s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes
+[0.853s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/right_gripper_link.STL
+[0.853s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/torso_link2.STL
+[0.854s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/torso_link3.STL
+[0.854s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/left_arm_link5.STL
+[0.854s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/right_arm_link6.STL
+[0.854s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/left_arm_link2.STL
+[0.854s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/left_arm_link6.STL
+[0.854s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/wheel_motor_link2.STL
+[0.854s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/torso_link4.STL
+[0.854s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/left_gripper_finger_link1.STL
+[0.855s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/left_gripper_link.STL
+[0.855s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/right_gripper_finger_link2.STL
+[0.855s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/zed_link.STL
+[0.855s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/base_link.STL
+[0.855s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/wheel_motor_link3.STL
+[0.855s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/right_arm_link3.STL
+[0.855s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/right_arm_link2.STL
+[0.855s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/left_realsense_link.STL
+[0.855s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/left_arm_link4.STL
+[0.856s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/steer_motor_link1.STL
+[0.856s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/left_arm_base_link.STL
+[0.856s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/left_gripper_finger_link2.STL
+[0.856s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/right_arm_base_link.STL
+[0.856s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/wheel_motor_link1.STL
+[0.856s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/right_arm_link4.STL
+[0.856s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/steer_motor_link2.STL
+[0.856s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/right_arm_link1.STL
+[0.856s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/steer_motor_link3.STL
+[0.856s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/right_gripper_finger_link1.STL
+[0.856s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/left_arm_link1.STL
+[0.856s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/torso_link1.STL
+[0.856s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/right_arm_link5.STL
+[0.856s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/left_arm_link3.STL
+[0.856s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/meshes/right_realsense_link.STL
+[0.856s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/config
+[0.856s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/config/joint_names_r1_v2_1_0.yaml
+[0.856s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/ament_index/resource_index/package_run_dependencies/galaxea_simulation
+[0.856s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/ament_index/resource_index/parent_prefix_path/galaxea_simulation
+[0.856s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/environment/ament_prefix_path.sh
+[0.857s] -- Installing: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/environment/ament_prefix_path.dsv
+[0.857s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/environment/path.sh
+[0.857s] -- Installing: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/environment/path.dsv
+[0.857s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/local_setup.bash
+[0.857s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/local_setup.sh
+[0.857s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/local_setup.zsh
+[0.858s] -- Installing: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/local_setup.dsv
+[0.858s] -- Installing: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/package.dsv
+[0.858s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/ament_index/resource_index/packages/galaxea_simulation
+[0.858s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/cmake/galaxea_simulationConfig.cmake
+[0.858s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/cmake/galaxea_simulationConfig-version.cmake
+[0.858s] -- Up-to-date: /ros2_ws/install/galaxea_simulation/share/galaxea_simulation/package.xml
+[0.860s] Invoked command in '/ros2_ws/build/galaxea_simulation' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /ros2_ws/build/galaxea_simulation

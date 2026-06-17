@@ -1,0 +1,6 @@
+Invoking command in '/ros2_ws/build/galaxea_simulation': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /ros2_ws/src/galaxea_simulation -DCMAKE_INSTALL_PREFIX=/ros2_ws/install/galaxea_simulation
+Invoked command in '/ros2_ws/build/galaxea_simulation' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /ros2_ws/src/galaxea_simulation -DCMAKE_INSTALL_PREFIX=/ros2_ws/install/galaxea_simulation
+Invoking command in '/ros2_ws/build/galaxea_simulation': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /ros2_ws/build/galaxea_simulation -- -j16 -l16
+Invoked command in '/ros2_ws/build/galaxea_simulation' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /ros2_ws/build/galaxea_simulation -- -j16 -l16
+Invoking command in '/ros2_ws/build/galaxea_simulation': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /ros2_ws/build/galaxea_simulation
+Invoked command in '/ros2_ws/build/galaxea_simulation' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /ros2_ws/build/galaxea_simulation

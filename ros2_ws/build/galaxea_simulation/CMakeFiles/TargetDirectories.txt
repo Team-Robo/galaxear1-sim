@@ -1,0 +1,9 @@
+/ros2_ws/build/galaxea_simulation/CMakeFiles/uninstall.dir
+/ros2_ws/build/galaxea_simulation/CMakeFiles/galaxea_simulation_uninstall.dir
+/ros2_ws/build/galaxea_simulation/CMakeFiles/test.dir
+/ros2_ws/build/galaxea_simulation/CMakeFiles/edit_cache.dir
+/ros2_ws/build/galaxea_simulation/CMakeFiles/rebuild_cache.dir
+/ros2_ws/build/galaxea_simulation/CMakeFiles/list_install_components.dir
+/ros2_ws/build/galaxea_simulation/CMakeFiles/install.dir
+/ros2_ws/build/galaxea_simulation/CMakeFiles/install/local.dir
+/ros2_ws/build/galaxea_simulation/CMakeFiles/install/strip.dir
