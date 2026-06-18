@@ -27,7 +27,4 @@ colcon build --symlink-install
 source install/setup.bash
 
 echo ""
-echo "Done. Add these to your ~/.bashrc if you haven't already:"
-echo "  source /opt/ros/humble/setup.bash"
-echo "  source $(pwd)/install/setup.bash"
-echo "  export IGN_GAZEBO_RESOURCE_PATH=$(pwd)/install/galaxea_simulation/share/galaxea_simulation"
+echo "Done. Setup completed successfully"
