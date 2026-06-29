@@ -18,18 +18,26 @@ class SwerveController(Node):
     def __init__(self):
         super().__init__('swerve_controller')
 
-        self.declare_parameter('wheel_radius', 0.025)
+        self.declare_parameter('wheel_radius', 0.07)
         self.declare_parameter('deadband', 0.001)
         self.declare_parameter('rate', 50.0)
         self.declare_parameter('cmd_timeout', 0.5)
-        self.declare_parameter('max_linear_accel', 0.5)
-        self.declare_parameter('max_angular_accel', 1.0)
+        self.declare_parameter('max_vx', 1.5)
+        self.declare_parameter('max_vy', 1.5)
+        self.declare_parameter('max_wz', 3.0)
+        self.declare_parameter('max_accel_x', 2.5)
+        self.declare_parameter('max_accel_y', 1.0)
+        self.declare_parameter('max_accel_wz', 3.0)
 
         self.wheel_radius = self.get_parameter('wheel_radius').value
         self.deadband = self.get_parameter('deadband').value
         self.cmd_timeout = self.get_parameter('cmd_timeout').value
-        self.max_lin_accel = self.get_parameter('max_linear_accel').value
-        self.max_ang_accel = self.get_parameter('max_angular_accel').value
+        self.max_vx = self.get_parameter('max_vx').value
+        self.max_vy = self.get_parameter('max_vy').value
+        self.max_wz = self.get_parameter('max_wz').value
+        self.max_accel_x = self.get_parameter('max_accel_x').value
+        self.max_accel_y = self.get_parameter('max_accel_y').value
+        self.max_accel_wz = self.get_parameter('max_accel_wz').value
         rate = self.get_parameter('rate').value
         self.dt = 1.0 / rate
 
@@ -57,7 +65,8 @@ class SwerveController(Node):
 
         self.get_logger().info(
             f'Swerve controller ready (wheel_r={self.wheel_radius}, '
-            f'max_lin_accel={self.max_lin_accel})')
+            f'max_vel=[{self.max_vx}, {self.max_vy}, {self.max_wz}], '
+            f'max_accel=[{self.max_accel_x}, {self.max_accel_y}, {self.max_accel_wz}])')
 
     def _cmd_vel_cb(self, msg):
         self.target_cmd = msg
@@ -86,11 +95,13 @@ class SwerveController(Node):
         if elapsed > self.cmd_timeout:
             self.target_cmd = Twist()
 
-        lin_step = self.max_lin_accel * self.dt
-        ang_step = self.max_ang_accel * self.dt
-        self.ramped[0] = self._ramp(self.ramped[0], self.target_cmd.linear.x, lin_step)
-        self.ramped[1] = self._ramp(self.ramped[1], self.target_cmd.linear.y, lin_step)
-        self.ramped[2] = self._ramp(self.ramped[2], self.target_cmd.angular.z, ang_step)
+        target_vx = max(-self.max_vx, min(self.max_vx, self.target_cmd.linear.x))
+        target_vy = max(-self.max_vy, min(self.max_vy, self.target_cmd.linear.y))
+        target_wz = max(-self.max_wz, min(self.max_wz, self.target_cmd.angular.z))
+
+        self.ramped[0] = self._ramp(self.ramped[0], target_vx, self.max_accel_x * self.dt)
+        self.ramped[1] = self._ramp(self.ramped[1], target_vy, self.max_accel_y * self.dt)
+        self.ramped[2] = self._ramp(self.ramped[2], target_wz, self.max_accel_wz * self.dt)
 
         vx, vy, wz = self.ramped
 
