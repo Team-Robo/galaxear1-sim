@@ -10,7 +10,7 @@ def generate_launch_description():
     gz_resource_path = os.path.dirname(pkg)
 
     urdf_file = os.path.join(pkg, 'urdf', 'r1_v2_1_0.urdf')
-    world_file = os.path.join(pkg, 'worlds', 'empty.sdf')
+    world_file = os.path.join(pkg, 'worlds', 'apartment.sdf')
 
     with open(urdf_file, 'r') as f:
         robot_desc = f.read()
