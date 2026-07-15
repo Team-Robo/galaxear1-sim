@@ -121,10 +121,17 @@ class SwerveController(Node):
                 if abs(delta) > math.pi / 2.0:
                     angle = self._normalize(angle + math.pi)
                     wheel_vel = -wheel_vel
+                    delta = self._normalize(angle - self.current_steer[i])
 
-
-
-
+                # Cosine compensation: while the module is still turning toward
+                # its target heading, driving the wheel at full speed makes the
+                # actual ground-contact velocity diverge from what swerve_odometry.py's
+                # FK assumes (wheel already at target angle), injecting a spurious wz
+                # into the dead-reckoned heading every time the commanded motion
+                # changes shape. Scale speed down by the remaining steering error
+                # instead. abs(delta) <= pi/2 here by construction, so cos(delta) >= 0;
+                # max(...) is just a float-precision safety clamp.
+                wheel_vel *= max(0.0, math.cos(delta))
             s = Float64()
             s.data = angle
             self.steer_pubs[i].publish(s)

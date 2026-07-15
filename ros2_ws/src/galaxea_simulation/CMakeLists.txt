@@ -32,6 +32,8 @@ install(DIRECTORY
 
 install(PROGRAMS
   scripts/swerve_controller.py
+  scripts/swerve_odometry.py
+  scripts/imu_hdas_translator.py
   DESTINATION lib/${PROJECT_NAME}
 )
 

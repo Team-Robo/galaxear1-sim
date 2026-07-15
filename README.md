@@ -126,3 +126,13 @@ joint commands for the 3 swerve modules:
 4. Publishes steer angle commands (`Float64` → `JointPositionController` in Gazebo)
 5. Publishes wheel velocity commands (`Float64` → `JointController` in Gazebo)
 
+### Spawn offset vs. odometry
+
+`gazebo.launch.py` spawns `r1` at `(3, -3, 0.5)` in the Gazebo world frame (see the
+`spawn` node's `-x`/`-y`/`-z` arguments). `/odom` (and any other pose estimate that
+initializes at the origin, e.g. from `swerve_odometry.py`) starts at `(0, 0, 0)` with
+yaw `0`, so it will be offset from the raw Gazebo world-frame pose
+(`/model/r1/pose`) by that spawn transform for the entire run. Subtract the spawn
+pose before comparing odometry against ground truth, or you'll see a constant
+`(3, -3)` position error (plus any spawn yaw) that looks like drift but isn't.
+

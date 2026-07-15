@@ -21,6 +21,8 @@ RUN apt-get update && apt-get install -y \
     ros-humble-rqt-common-plugins \
     ros-humble-teleop-twist-keyboard \
     ros-humble-foxglove-bridge \
+    ros-humble-xacro \
+    python3-numpy \
     && rm -rf /var/lib/apt/lists/*
 
 # Set the working directory to our mounted workspace

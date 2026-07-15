@@ -1,0 +1,173 @@
+<?xml version="1.0"?>
+
+<robot name="r1_v2_1_0" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="r1_v2_1_0.urdf" />
+
+  <!-- ================ 3D LiDAR: Livox Mid-360, left side of base ================ -->
+  <!-- Real measured extrinsic, from the firmware's own per-unit calibration file:
+       atc_standard-.../install/startup_config/share/startup_config/calib/robot_calibration.json,
+       "lidars" -> entry named "lidar_front_left" (this is the "left side" unit — the spec
+       sheet's two optional lidar mounts are named front_left/front_right corners, not a
+       generic side-of-chassis mount; "left side" per your instruction = this one).
+       translation (x,y,z) applied directly as xyz below; rotation applied directly as rpy
+       — CAVEAT: not independently confirmed whether that file's rotation triple is RPY
+       radians or an axis-angle/Rodrigues vector, and whether its reference frame is
+       exactly this URDF's base_link origin. The values are small (~1 deg) either way, so
+       the practical effect is minor, but tune against real hardware before trusting this
+       for anything precision-sensitive. Link name stays "livox_frame" (not
+       "lidar_front_left") to match the real Livox driver's frame_id default
+       (msg_MID360_launch.py) — that's the TF frame name that actually has to resolve. -->
+  <link name="livox_frame">
+    <inertial>
+      <mass value="0.265" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001" />
+    </inertial>
+  </link>
+  <joint name="livox_frame_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="livox_frame" />
+    <!-- "rotation" in robot_calibration.json is an axis-angle (Rodrigues) vector, not
+         RPY — confirmed by cross-checking the camera entries in the same file: their
+         rotation magnitude is ~2.092 rad, matching the textbook 2*pi/3 axis-angle constant
+         for "optical frame -> ROS body frame", and converting that way yields a clean
+         (-90, 0, -90) deg RPY, the standard convention. At this rotation's tiny magnitude
+         (~1.3 deg) the axis-angle-correct and naive-as-rpy values are nearly identical, so
+         this one is applied as-is either way. -->
+    <origin xyz="0.2362 0.2622 0.2585" rpy="-0.006727 -0.006629 0.019813" />
+  </joint>
+  <!-- Without this, sdformat's URDF->SDF conversion lumps livox_frame (fixed joint, no
+       visual/collision) into base_link/base_footprint during spawn, so the link never
+       exists as its own entity in Gazebo — the gpu_lidar sensor's auto-published
+       "<topic>/points" then reports its parent's scoped name (e.g.
+       "r1/base_footprint/livox_lidar") instead of "livox_frame", which slam_toolbox's
+       message filter can never resolve via TF, silently dropping every scan. -->
+  <gazebo reference="livox_frame_joint">
+    <disableFixedJointLumping>true</disableFixedJointLumping>
+  </gazebo>
+
+  <!-- ================ Chassis IMU, rigidly on base_link ================ -->
+  <!-- Deliberately NOT on the torso: torso_joint2-4 articulate, so an IMU mounted there
+       would have an orientation relative to base_link that changes with torso motion —
+       wrong for base localization even though this project never moves the torso during
+       nav. Real measured extrinsic, same robot_calibration.json, "IMU" -> "imu_chassis"
+       (name match confirms this is the /hdas/imu_chassis unit).
+       Unlike the lidar above, this rotation is large (~180 deg, not ~1 deg), so the
+       axis-angle-vs-RPY distinction actually matters here — converted properly via
+       Rodrigues' formula (not applied as raw RPY): roll~=pi, pitch~=-0.0137 rad, yaw~=0.
+       The dominant ~180 deg-about-X component means the IMU is mounted upside-down
+       relative to whatever frame this calibration reports in. Remaining caveat (can't
+       resolve without hardware/vendor docs): whether that reporting frame's origin/axes
+       coincide exactly with this URDF's base_link. If you get a chance to verify on real
+       hardware: check /hdas/imu_chassis's acc_z while the robot sits stationary and level
+       — it should read ~+9.81 or ~-9.81 depending on whether the driver reports specific
+       force or gravity-compensated acceleration; whichever convention it uses, the sign
+       should stay consistent with this mounting once translated to sensor_msgs/Imu. -->
+  <link name="chassis_imu_link">
+    <inertial>
+      <mass value="0.01" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+  <joint name="chassis_imu_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="chassis_imu_link" />
+    <origin xyz="-0.147 0.0 0.2567" rpy="3.141519 -0.013687 0.0" />
+  </joint>
+  <!-- Same fixed-joint lumping issue as livox_frame_joint above — without this, the
+       chassis IMU sensor's published frame_id would resolve to base_link's scoped name
+       instead of "chassis_imu_link". -->
+  <gazebo reference="chassis_imu_joint">
+    <disableFixedJointLumping>true</disableFixedJointLumping>
+  </gazebo>
+
+  <!-- ================ GAZEBO FORTRESS (IGNITION) SENSOR PLUGINS ================ -->
+  <!-- Explicit <topic> tags, same convention as the joint controllers in r1_v2_1_0.urdf
+       (avoids Ignition's auto-generated hierarchical topic names, which is also why
+       gazebo.launch.py's own comment says to confirm exact topic names via `ign topic -l`
+       before trusting any of these blindly). -->
+
+  <gazebo reference="livox_frame">
+    <sensor name="livox_lidar" type="gpu_lidar">
+      <!-- Without this, gz-sim's gpu_lidar plugin auto-generates the published
+           PointCloudPacked's frame_id from the sensor's scoped entity path
+           (e.g. "r1/base_footprint/livox_lidar") instead of using the "livox_frame"
+           link this sensor is attached to via the <gazebo reference> above; that
+           scoped name is never broadcast to TF, so nothing downstream (slam_toolbox,
+           pointcloud_to_laserscan) can ever resolve a transform for it. -->
+      <frame_id>livox_frame</frame_id>
+      <pose>0 0 0 0 0 0</pose>
+      <topic>/model/r1/sensor/livox_lidar</topic>
+      <update_rate>10</update_rate>
+      <always_on>true</always_on>
+      <visualize>false</visualize>
+      <lidar>
+        <scan>
+          <horizontal>
+            <samples>360</samples>
+            <resolution>1</resolution>
+            <min_angle>-3.14159265</min_angle>
+            <max_angle>3.14159265</max_angle>
+          </horizontal>
+          <vertical>
+            <!-- Approximates the Mid-360's ~59 deg vertical FOV with a handful of rings.
+                 Not a faithful reproduction of its non-repetitive scan pattern — not
+                 achievable in Gazebo and not needed for 2D nav. -->
+            <samples>8</samples>
+            <resolution>1</resolution>
+            <min_angle>-0.5149</min_angle>
+            <max_angle>0.5149</max_angle>
+          </vertical>
+        </scan>
+        <range>
+          <min>0.1</min>
+          <max>40.0</max>
+          <resolution>0.01</resolution>
+        </range>
+      </lidar>
+    </sensor>
+  </gazebo>
+
+  <!-- imu sensor publishes ignition.msgs.IMU (-> sensor_msgs/Imu via the bridge). Bridged
+       to an internal-only topic, not directly to /hdas/imu_chassis, since the real topic
+       needs the real hdas_msg/Imu type — imu_hdas_translator.py does that conversion. -->
+  <gazebo reference="chassis_imu_link">
+    <sensor name="chassis_imu" type="imu">
+      <!-- Same reasoning as livox_lidar's <frame_id> above: without it, the published
+           sensor_msgs/Imu carries an auto-generated scoped frame_id instead of
+           "chassis_imu_link", so ekf_node can never resolve a TF for it and silently
+           drops the IMU fusion. -->
+      <frame_id>chassis_imu_link</frame_id>
+      <pose>0 0 0 0 0 0</pose>
+      <topic>/model/r1/sensor/chassis_imu</topic>
+      <update_rate>100</update_rate>
+      <always_on>true</always_on>
+    </sensor>
+  </gazebo>
+
+  <!-- Model-level system plugin (bare <gazebo>, no reference= — same convention as the
+       joint controllers in r1_v2_1_0.urdf), publishing ground-truth model pose on
+       /model/r1/pose for the bridge in gazebo.launch.py. Must live at model scope, not
+       nested under a link's <gazebo reference="..."> block, since PosePublisher reports
+       the model's pose, not a single link's.
+
+       publish_nested_model_pose is set true even though r1 is NOT a nested model: in
+       gz-sim6 (Fortress)'s PosePublisher.cc, a top-level model's pose is only filled when
+       `publishNestedModelPose && publishModelPose` both hold (InitializeEntitiesToPublish) —
+       leaving this false means /model/r1/pose gets advertised but never actually emits a
+       message, no matter what publish_model_pose is set to. See the same parameter
+       confusion tracked upstream in gz-sim#2690 (Harmonic). -->
+  <gazebo>
+    <plugin filename="ignition-gazebo-pose-publisher-system"
+            name="ignition::gazebo::systems::PosePublisher">
+      <publish_link_pose>false</publish_link_pose>
+      <publish_model_pose>true</publish_model_pose>
+      <publish_nested_model_pose>true</publish_nested_model_pose>
+      <use_pose_vector_msg>false</use_pose_vector_msg>
+      <update_frequency>30</update_frequency>
+    </plugin>
+  </gazebo>
+
+</robot>
