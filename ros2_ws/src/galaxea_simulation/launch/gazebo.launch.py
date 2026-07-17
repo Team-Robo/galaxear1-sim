@@ -14,7 +14,7 @@ def generate_launch_description():
     # re-export file — never hand-edit it) and adds the lidar + chassis IMU on top, so
     # sensor additions survive the next SolidWorks re-export.
     urdf_file = os.path.join(pkg, 'urdf', 'r1_sensors.urdf.xacro')
-    world_file = os.path.join(pkg, 'worlds', 'apartment.sdf')
+    world_file = os.path.join(pkg, 'worlds', 'apartment_v2.sdf')
 
     robot_desc = xacro.process_file(urdf_file).toxml()
 
@@ -36,8 +36,8 @@ def generate_launch_description():
         arguments=[
             '-name', 'r1',
             '-topic', 'robot_description',
-            '-x', '3',
-            '-y', '-3',
+            '-x', '7',
+            '-y', '-7',
             '-z', '0.5',
         ],
         output='screen',
@@ -59,11 +59,9 @@ def generate_launch_description():
             '/clock@rosgraph_msgs/msg/Clock[ignition.msgs.Clock',
             '/model/r1/pose@geometry_msgs/msg/Pose[ignition.msgs.Pose',
             '/world/default/model/r1/joint_state@sensor_msgs/msg/JointState[ignition.msgs.Model',
-            # Swerve steering commands (ROS -> IGN)
             '/model/r1/joint/steer_motor_joint1/cmd_pos@std_msgs/msg/Float64]ignition.msgs.Double',
             '/model/r1/joint/steer_motor_joint2/cmd_pos@std_msgs/msg/Float64]ignition.msgs.Double',
             '/model/r1/joint/steer_motor_joint3/cmd_pos@std_msgs/msg/Float64]ignition.msgs.Double',
-            # Swerve wheel velocity commands (ROS -> IGN)
             '/model/r1/joint/wheel_motor_joint1/cmd_vel@std_msgs/msg/Float64]ignition.msgs.Double',
             '/model/r1/joint/wheel_motor_joint2/cmd_vel@std_msgs/msg/Float64]ignition.msgs.Double',
             '/model/r1/joint/wheel_motor_joint3/cmd_vel@std_msgs/msg/Float64]ignition.msgs.Double',
@@ -78,6 +76,7 @@ def generate_launch_description():
         output='screen',
     )
 
+    # converts velocity commands into per-wheel steer/drive motor commands for the swerve drive
     swerve_controller = Node(
         package='galaxea_simulation',
         executable='swerve_controller.py',
@@ -86,6 +85,7 @@ def generate_launch_description():
         output='screen',
     )
 
+    # computes and publishes odometry from wheel/steer feedback.
     swerve_odometry = Node(
         package='galaxea_simulation',
         executable='swerve_odometry.py',
@@ -94,6 +94,7 @@ def generate_launch_description():
         output='screen',
     )
 
+    # reformats the raw Gazebo IMU message into the HDAS-expected IMU format
     imu_hdas_translator = Node(
         package='galaxea_simulation',
         executable='imu_hdas_translator.py',
@@ -102,6 +103,9 @@ def generate_launch_description():
         output='screen',
     )
 
+    # alias the bogus scoped frame to the correct frame with a static identity transform
+    # Reason: GpuLidarSensor builds the header.frame_id directly from the entity's scoped name (<model>/<link>/<sensor>) 
+    # and ignores the SDF <frame_id> override entirely  
     livox_frame_alias = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
