@@ -111,7 +111,12 @@ class SwerveController(Node):
             speed = math.hypot(mx, my)
 
             if speed < self.deadband:
-                angle = self.current_steer[i]
+                # Recenter to straight-ahead while stopped instead of freezing at
+                # whatever angle the module last had. Otherwise a module left
+                # parked off-axis after a turn/strafe has to servo that whole
+                # distance back once the next drive command arrives, and the
+                # robot visibly swerves during that catch-up window.
+                angle = 0.0
                 wheel_vel = 0.0
             else:
                 angle = math.atan2(my, mx)
