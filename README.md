@@ -60,6 +60,8 @@ docker compose down
 ```
 **Workspace mounting:** `./ros2_ws/src` is bind-mounted to `/ros2_ws/src` inside the container. Edits from your host editor are reflected instantly.
 
+**No NVIDIA GPU?** The GPU passthrough lines in `docker-compose.yml` (the two `NVIDIA_*` environment variables and the `deploy` block) are commented out by default, so `docker compose build`/`up` works as-is on any machine — Gazebo just falls back to software (llvmpipe) rendering. If you do have an NVIDIA GPU + the NVIDIA Container Toolkit installed, uncomment those lines for hardware-accelerated rendering.
+
 ### Option B: Native Ubuntu
 
 **Prerequisites:** Ubuntu 22.04 with ROS 2 Humble Desktop 
